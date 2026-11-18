@@ -2,8 +2,8 @@ import { domains, type Domain } from "@/data/content";
 
 const Domains = ({ onPick }: { onPick: (d: Domain) => void }) => (
   <section id="domains" aria-labelledby="domains-h" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-12 md:py-20">
-    <h2 id="domains-h" className="font-display text-3xl font-semibold">Two disciplines, one practice</h2>
-    <p className="mt-2 max-w-2xl text-muted">Designing how a product works, and testing that it does.</p>
+    <h2 id="domains-h" className="font-display text-3xl font-semibold">Design, testing, and visual identity</h2>
+    <p className="mt-2 max-w-2xl text-muted">Creating digital experiences, visual identities, and testing that products work reliably.</p>
     <div className="mt-8 grid gap-6 md:grid-cols-2">
       {(Object.keys(domains) as Domain[]).map((k) => {
         const d = domains[k];

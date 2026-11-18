@@ -5,6 +5,7 @@ const tabs: { id: Filter; label: string }[] = [
   { id: "all", label: "All projects" },
   { id: "uiux", label: "UI/UX Design" },
   { id: "qa", label: "Software Testing / QA" },
+  { id: "graphic", label: "Graphic Design" },
 ];
 
 const Projects = ({ filter, setFilter }: { filter: Filter; setFilter: (f: Filter) => void }) => {
@@ -31,10 +32,8 @@ const Projects = ({ filter, setFilter }: { filter: Filter; setFilter: (f: Filter
             const d = domains[p.domain];
             return (
               <article key={p.id} className="flex flex-col overflow-hidden rounded-2xl border border-line bg-paper">
-                {p.image ? (
+                {p.image && (
                   <img src={p.image} alt={p.imageAlt ?? `Screenshot of ${p.name}`} loading="lazy" decoding="async" className="aspect-video w-full object-cover" />
-                ) : (
-                  <div className={`flex aspect-video items-center justify-center text-sm font-medium ${d.soft}`}>[Add project image]</div>
                 )}
                 <div className="flex flex-1 flex-col p-6">
                   <span className={`self-start rounded-full px-3 py-1 text-xs font-semibold ${d.solid}`}>{d.label}</span>
