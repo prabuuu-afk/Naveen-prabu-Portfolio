@@ -1,11 +1,4 @@
-// ============================================================
-// EDIT THIS FILE to add your real details.
-// Anything in [square brackets] is a placeholder and is shown on the
-// site exactly as written until you replace it.
-// ============================================================
-
 export type Domain = "uiux" | "qa" | "graphic";
-export const isPlaceholder = (v: string) => v.trim().startsWith("[");
 
 export const site = {
   name: "Naveen prabu P",
@@ -47,7 +40,6 @@ export const domains = {
   },
 } as const;
 
-// Put your two PDFs in /public/resumes/.
 export const resumes = [
   { domain: "uiux" as Domain, label: "Download UI/UX Resume", href: "/resumes/Naveen_Prabu_UIUX_Resume_.pdf", filename: "Naveen_Prabu_UIUX_Resume.pdf" },
   { domain: "qa" as Domain, label: "Download Software Testing Resume", href: "/resumes/Naveen_Prabu_QA_Resume_.pdf", filename: "Naveen_Prabu_QA_Resume.pdf" },
@@ -67,7 +59,6 @@ export type Project = {
   linkLabel?: string;
 };
 
-// Replace these placeholder entries with your real projects. Copy a block to add more.
 export const projects: Project[] = [
   {
     id: "spotify-android-ui-clone",

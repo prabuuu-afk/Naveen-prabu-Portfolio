@@ -1,4 +1,4 @@
-import { site, contacts, isPlaceholder } from "@/data/content";
+import { site, contacts } from "@/data/content";
 import ResumeButtons from "./ResumeButtons";
 
 const wrap = "mx-auto max-w-6xl scroll-mt-20 px-5 py-16 md:py-24";
@@ -28,21 +28,14 @@ export const Contact = () => (
         const href = c.kind === "email" ? `mailto:${c.value}` : c.value;
         return (
           <li key={c.label}>
-            {isPlaceholder(c.value) ? (
-              <span className="inline-flex min-h-11 items-center gap-2 text-muted">
-                <span className="w-24 font-semibold">{c.label}</span>
-                {c.value}
-              </span>
-            ) : (
-              <a
-                href={href}
-                {...(c.kind === "url" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="inline-flex min-h-11 w-full items-center gap-2 rounded-md px-2 text-uiux underline underline-offset-4 touch-manipulation hover:bg-uiux/10"
-              >
-                <span className="w-24 font-semibold text-ink">{c.label}</span>
-                <span>{c.display}</span>
-              </a>
-            )}
+            <a
+              href={href}
+              {...(c.kind === "url" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="inline-flex min-h-11 w-full items-center gap-2 rounded-md px-2 text-uiux underline underline-offset-4 touch-manipulation hover:bg-uiux/10"
+            >
+              <span className="w-24 font-semibold text-ink">{c.label}</span>
+              <span>{c.display}</span>
+            </a>
           </li>
         );
       })}
