@@ -8,10 +8,17 @@ import { About, Resumes, Contact, Footer } from "@/components/portfolio/Info";
 const Index = () => {
   const [filter, setFilter] = useState<Filter>("all");
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const revealElements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
     if (!revealElements.length) return;
 
     document.documentElement.classList.add("reveal-ready");
+
+    if (prefersReducedMotion) {
+      revealElements.forEach((element) => element.classList.add("is-revealed"));
+      return;
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -22,7 +29,7 @@ const Index = () => {
 
     revealElements.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
-  }, []);
+  }, [filter]);
 
   return (
     <>
