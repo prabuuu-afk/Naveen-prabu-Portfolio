@@ -62,6 +62,7 @@ The website showcases my skills, professional profile, downloadable resumes, des
 | Project | Overview | Link |
 | --- | --- | --- |
 | **College Tech Hub Logo** | Visual identity and logo design for the college technical community. | [View design](https://drive.google.com/file/d/1K3dQ5eEE7DtiLMzZPjzctvy0IBOxf10d/view?usp=drive_link) |
+| **Kalam 24 Poster Designs** | Posters designed for the Kalam 2024 college cultural event. | [View poster designs](https://drive.google.com/drive/folders/1OzXQwTaXiZm_Ztp82bxdptAw4Dxyuu4A?usp=sharing) |
 
 ## 🛠️ Technology Stack
 
@@ -110,7 +111,8 @@ Naveen-prabu-Portfolio/
 │   ├── Naveen_prabu_img.png
 │   ├── Spotify_project.png
 │   ├── Zesto_project.png
-│   └── SIET_tech_hub.png
+│   ├── SIET_tech_hub.png
+│   └── kalam24music.jpeg
 ├── src/
 │   ├── components/portfolio/    # Portfolio UI sections
 │   ├── data/content.ts          # Portfolio and project content
