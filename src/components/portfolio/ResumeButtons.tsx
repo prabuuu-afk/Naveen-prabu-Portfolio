@@ -8,7 +8,7 @@ const ResumeButtons = () => (
         key={r.href}
         href={r.href}
         download={r.filename}
-        className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold ${domains[r.domain].solid} hover:opacity-90`}
+        className={`resume-button button-lift inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold ${domains[r.domain].solid}`}
       >
         <Download size={16} aria-hidden="true" />
         {r.label}

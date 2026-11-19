@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { projects, domains, type Domain } from "@/data/content";
 
 export type Filter = "all" | Domain;
@@ -21,19 +22,39 @@ const Projects = ({ filter, setFilter }: { filter: Filter; setFilter: (f: Filter
               type="button"
               aria-pressed={filter === t.id}
               onClick={() => setFilter(t.id)}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold ${filter === t.id ? "border-ink bg-ink text-paper" : "border-line bg-paper text-ink hover:border-ink"}`}
+              className={`filter-chip button-lift rounded-full border px-4 py-2 text-sm font-semibold ${filter === t.id ? "border-ink bg-ink text-paper" : "border-line bg-paper text-ink"}`}
             >
               {t.label}
             </button>
           ))}
         </div>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {shown.map((p) => {
+          {shown.map((p, index) => {
             const d = domains[p.domain];
+            const accent = p.domain === "qa" ? "#0F766E" : "#C2410C";
             return (
-              <article key={p.id} className="flex flex-col overflow-hidden rounded-2xl border border-line bg-paper">
+              <article
+                key={p.id}
+                className="project-card reveal flex flex-col overflow-hidden rounded-2xl border border-line bg-paper"
+                data-reveal
+                style={{ "--card-accent": accent, "--reveal-delay": `${index * 60}ms` } as CSSProperties}
+              >
                 {p.image && (
-                  <img src={p.image} alt={p.imageAlt ?? `Screenshot of ${p.name}`} loading="lazy" decoding="async" className="aspect-video w-full object-cover" />
+                  <div className="project-image-wrap relative overflow-hidden">
+                    <img src={p.image} alt={p.imageAlt ?? `Screenshot of ${p.name}`} loading="lazy" decoding="async" className="project-image aspect-video w-full object-cover" />
+                    {p.link && (
+                      <a
+                        href={p.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-overlay"
+                        style={{ backgroundColor: p.domain === "qa" ? "rgba(15, 118, 110, 0.18)" : "rgba(194, 65, 12, 0.18)" }}
+                        aria-label={`${p.linkLabel ?? "View project"}: ${p.name}`}
+                      >
+                        <span>{p.linkLabel ?? "View project"} <span aria-hidden="true">→</span></span>
+                      </a>
+                    )}
+                  </div>
                 )}
                 <div className="flex flex-1 flex-col p-6">
                   <span className={`self-start rounded-full px-3 py-1 text-xs font-semibold ${d.solid}`}>{d.label}</span>
@@ -41,12 +62,12 @@ const Projects = ({ filter, setFilter }: { filter: Filter; setFilter: (f: Filter
                   <p className="mt-2 text-sm leading-6 text-muted">{p.summary}</p>
                   <dl className="mt-4 space-y-2 text-sm">
                     <div><dt className="font-semibold">My role</dt><dd className="text-muted">{p.role}</dd></div>
-                    <div><dt className="font-semibold">Tools &amp; methods</dt><dd className="mt-1 flex flex-wrap gap-2">{p.tools.map((t, i) => (<span key={i} className="rounded-full border border-line bg-white px-3 py-1 text-xs">{t}</span>))}</dd></div>
+                    <div><dt className="font-semibold">Tools &amp; methods</dt><dd className="mt-1 flex flex-wrap gap-2">{p.tools.map((t, i) => (<span key={i} className="project-chip rounded-full border border-line bg-white px-3 py-1 text-xs" data-domain={p.domain}>{t}</span>))}</dd></div>
                     {p.outcome && <div><dt className="font-semibold">Outcome</dt><dd className="text-muted">{p.outcome}</dd></div>}
                   </dl>
                   {p.link && (
-                    <a href={p.link} target="_blank" rel="noopener noreferrer" className={`mt-5 inline-flex font-semibold underline ${d.text}`}>
-                      {p.linkLabel ?? "View project"}<span className="sr-only"> (opens in a new tab)</span> →
+                    <a href={p.link} target="_blank" rel="noopener noreferrer" className={`project-text-link mt-5 inline-flex self-start font-semibold underline ${d.text}`}>
+                      <span>{p.linkLabel ?? "View project"}</span><span className="arrow-nudge" aria-hidden="true">→</span><span className="sr-only"> (opens in a new tab)</span>
                     </a>
                   )}
                 </div>
