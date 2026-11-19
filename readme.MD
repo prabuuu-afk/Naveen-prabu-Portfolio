@@ -2,13 +2,11 @@
 
 <div align="center">
 
-<img src="./public/Prabu_photo.jpeg" alt="Naveen Prabu P" width="180" />
-
 ### UI/UX Designer & Software Tester
 
 **Designing intuitive experiences. Testing reliable products.**
 
-[![Live Website](https://img.shields.io/badge/View-Live_Website-111827?style=for-the-badge&logo=googlechrome&logoColor=white)](https://prabuuu-afk.github.io/Naveen-prabu-Portfolio/)
+[![Live Website](https://img.shields.io/badge/View-Live_Website-111827?style=for-the-badge&logo=googlechrome&logoColor=white)](https://naveen-prabu-portfolio.vercel.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/naveen-prabu-p-8b4a78413/)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/prabuuu-afk)
 
@@ -18,7 +16,7 @@
 
 ## 🌐 Website
 
-Visit my portfolio: **[Naveen Prabu P — Portfolio](https://prabuuu-afk.github.io/Naveen-prabu-Portfolio/)**
+Visit my portfolio: **[Naveen Prabu P — Portfolio](https://naveen-prabu-portfolio.vercel.app/)**
 
 The website showcases my skills, professional profile, downloadable resumes, design work, and quality assurance projects.
 
@@ -110,7 +108,6 @@ Naveen-prabu-Portfolio/
 ├── public/
 │   ├── resumes/                 # Downloadable resume PDF files
 │   ├── Naveen_prabu_img.png
-│   ├── Prabu_photo.jpeg
 │   ├── Spotify_project.png
 │   ├── Zesto_project.png
 │   └── SIET_tech_hub.png
